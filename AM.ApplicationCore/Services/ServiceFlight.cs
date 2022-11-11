@@ -8,17 +8,22 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Services
 {
-    public class ServiceFlight : IServiceFlight
+    public class ServiceFlight :Service<Flight>, IServiceFlight
     {
+        private readonly IUnitOfWork _unitOfWork;
+        public ServiceFlight(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
         public Action<Plane> FlightDetailsDel;
 
         public Func<string, double> DurationAverageDel;
 
-        public ServiceFlight()
-        {
-            FlightDetailsDel = ShowFlightDetails;
-            DurationAverageDel = DurationAverage;
-        }
+        //public ServiceFlight()
+        //{
+        //    FlightDetailsDel = ShowFlightDetails;
+        //    DurationAverageDel = DurationAverage;
+        //}
         public List<Flight> flights { get; set; }
 
         /*public List<DateTime> GetFlightDates(string destination)
@@ -178,5 +183,14 @@ namespace AM.ApplicationCore.Services
         
         }
 
+        public Flight GetById(params object[] keyValues)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Flight> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AM.ApplicationCore.Domain;
+using AM.ApplicationCore.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Interfaces
 {
-    internal interface IServicePlane
+    public interface IServicePlane : IGenericRepository<Plane>
     {
+       
         public void Add (Plane plane);
-        public void Remove(Plane plane);
-        public IList<Plane> GetAll();    
+        //public void Remove(Plane plane);
+        //public IList<Plane> GetAll();    
     }
 }

@@ -38,26 +38,31 @@ sf.GetFlights("EffectiveArrival", "01/01/2022 17:10:10");
 
 */
 
-ServiceFlight sf=new ServiceFlight();
+//ServiceFlight sf=new ServiceFlight();
 
-sf.flights = TestData.listFlights;
+//sf.flights = TestData.listFlights;
 
 //sf.FlightDetailsDel(TestData.BoingPlane);
 
 ////Passenger p1=new Passenger { FirstName="nasreddine",LastName="madhkour"};
 ////p1.UpperFullName();
 ////Console.WriteLine(p1.FirstName+" "+  p1.LastName);
+//AMContext context = new AMContext();
+////context.Planes.Add(TestData.BoingPlane);
+////context.SaveChanges();
+//UnitOfWork ui = new UnitOfWork(context, typeof(GenericRepository<Plane>));
+
+
+//GenericRepository<Plane> genericRepository = new GenericRepository<Plane>(context);
+//ServicePlane sp =new ServicePlane(ui);
+//sp.Add(TestData.BoingPlane);
+//ui.Save();
+
+//    Console.WriteLine(context.Planes.First());
 AMContext context = new AMContext();
-//context.Planes.Add(TestData.BoingPlane);
-//context.SaveChanges();
-UnitOfWork ui = new UnitOfWork(context, typeof(GenericRepository<Plane>));
-
-
-GenericRepository<Plane> genericRepository = new GenericRepository<Plane>(context);
-ServicePlane sp =new ServicePlane(ui);
-sp.Add(TestData.BoingPlane);
+UnitOfWork ui = new UnitOfWork(context, typeof(GenericRepository<>));
+ServicePlane sp = new ServicePlane(ui);
+sp.Delete(TestData.Airbusplane);
+sp.Delete(TestData.BoingPlane);
 ui.Save();
-
-    Console.WriteLine(context.Planes.First());
-
 

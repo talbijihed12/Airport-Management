@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IServiceFlight
+    public interface IServiceFlight:IGenericRepository<Flight>
     {
         public void ShowFlightDetails(Plane p);
         public void GetFlights(string filterType, string filterValue);

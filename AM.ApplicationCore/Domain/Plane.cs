@@ -20,7 +20,7 @@ namespace AM.ApplicationCore.Domain
         public int PlaneId { get; set; }
         public PlaneType PlaneType { get; set; }
 
-
+        public enum PlaneType1 { Boing=0,Airbus=1} 
    
         public override string? ToString()
         {
